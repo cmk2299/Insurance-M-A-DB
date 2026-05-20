@@ -1,0 +1,26 @@
+[Unit]
+Description=Insurance-Intel weekly trade-press sweep
+Documentation=https://github.com/cmoritzkoster/insurance-intel
+After=network-online.target postgresql.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=insurance-intel
+Group=insurance-intel
+WorkingDirectory=/home/insurance-intel/insurance-intel
+EnvironmentFile=/etc/insurance-intel.env
+ExecStart=/home/insurance-intel/insurance-intel/.venv/bin/insurance-intel run
+StandardOutput=journal
+StandardError=journal
+TimeoutStartSec=3600
+
+# Security hardening (best-effort, none of these are load-bearing)
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/home/insurance-intel/insurance-intel /var/log/insurance-intel
+ProtectHome=read-only
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true

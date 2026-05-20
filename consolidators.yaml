@@ -1,0 +1,129 @@
+# Bekannte DACH-Versicherungsmakler-Konsolidatoren — Seed für buyer_consolidator_id-Matching.
+# Stand 2026-05-19, konsistent mit Cowork-MVP-Demo v1.1.
+# Match-Logik in structure.py: case-insensitive substring oder alias-match.
+
+consolidators:
+  - id: ggw
+    name: GGW Group
+    aliases: [GGW, "GGW Versicherungsmakler", "GGW Holding"]
+    pe_sponsor: HG Capital + Permira
+    segment: Industrie/Gewerbe
+    priority: 1
+
+  - id: mrh-trowe
+    name: MRH Trowe
+    aliases: ["MRH", "Trowe", "MRH-Trowe"]
+    pe_sponsor: AnaCap + TA Associates
+    segment: Industrie/Gewerbe
+    priority: 1
+
+  - id: summitas
+    name: Summitas Gruppe
+    aliases: [Summitas, "Summitas AG"]
+    pe_sponsor: Bain Capital + Great-West + JDC
+    segment: Industrie/Gewerbe + Privat
+    priority: 1
+
+  - id: aventus
+    name: Aventus Maklergruppe
+    aliases: [Aventus, "Aventus Versicherungsmakler"]
+    pe_sponsor: Familien-Kapital (Goldbeck/Robens/Policen-Direkt)
+    segment: Industrie/Gewerbe
+    priority: 1
+
+  - id: helmsauer
+    name: Helmsauer Gruppe
+    aliases: [Helmsauer, "Helmsauer-Gruppe"]
+    pe_sponsor: Nordic Capital
+    segment: Industrie/Gewerbe
+    priority: 1
+
+  - id: helmsauer-brueder-verbund
+    name: Helmsauer-Brüder Verbund
+    aliases: ["Helmsauer-Brüder", "Helmsauer Brueder", "Bastian Helmsauer", "Steffen Helmsauer"]
+    pe_sponsor: privat (Helmsauer-Söhne)
+    segment: Industrie/Gewerbe
+    priority: 2
+
+  - id: yellow-hive
+    name: Yellow Hive
+    aliases: ["Yellow Hive", "YellowHive"]
+    pe_sponsor: IK Partners
+    segment: Spezialmakler + FDL
+    priority: 2
+
+  - id: attikon
+    name: ATTIKON Finanz AG
+    aliases: [ATTIKON, "Attikon", "Attikon Gruppe"]
+    pe_sponsor: Macquarie + neuer strat. Partner
+    segment: Industrie/Gewerbe
+    priority: 2
+
+  - id: hbc
+    name: HBC-Gruppe
+    aliases: ["HBC", "HBC Gruppe"]
+    pe_sponsor: PE (Refinanzierung 2025)
+    segment: Industrie/Gewerbe
+    priority: 2
+
+  - id: global-gruppe
+    name: Global Gruppe
+    aliases: ["Global Gruppe", "Global-Gruppe"]
+    pe_sponsor: strategisch
+    segment: Industrie/Gewerbe
+    priority: 2
+
+  - id: german-partnership
+    name: germanPartnership
+    aliases: ["germanPartnership", "germanBroker.net", "CHARTA", "FiNet"]
+    pe_sponsor: Maklerdienstleister-Konsortium
+    segment: Maklerdienstleister-Adjacent
+    priority: 3
+
+  - id: ecclesia
+    name: Ecclesia
+    aliases: [Ecclesia, "Ecclesia Gruppe"]
+    pe_sponsor: strategisch
+    segment: Industrie/Gewerbe
+    priority: 2
+
+  - id: martens-prahl
+    name: Martens & Prahl
+    aliases: ["Martens & Prahl", "Martens und Prahl", "M&P"]
+    pe_sponsor: strategisch
+    segment: Industrie/Gewerbe
+    priority: 2
+
+  - id: ascendia
+    name: Ascendia
+    aliases: [Ascendia, "Ascendia Gruppe"]
+    pe_sponsor: HG Capital
+    segment: Privat/Kleingewerbe
+    priority: 3
+
+  - id: fonds-finanz
+    name: Fonds Finanz
+    aliases: ["Fonds Finanz", "FondsFinanz"]
+    pe_sponsor: HG Capital
+    segment: Maklerpool
+    priority: 3
+
+  - id: pma
+    name: PMA
+    aliases: ["PMA", "PMA Finanz- und Versicherungsmakler"]
+    pe_sponsor: HG Capital
+    segment: Maklerpool
+    priority: 3
+
+# PE-Sponsoren, die als Käufer in den Trade-Press-Headlines auftauchen können
+# (separate Match-Klasse — Signal P3)
+pe_sponsors:
+  - permira
+  - hg-capital
+  - anacap
+  - ta-associates
+  - nordic-capital
+  - bain-capital
+  - ik-partners
+  - macquarie
+  - great-west-life

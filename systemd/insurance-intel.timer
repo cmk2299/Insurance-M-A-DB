@@ -1,0 +1,14 @@
+[Unit]
+Description=Run insurance-intel sweep every Sunday 02:00 Europe/Berlin
+Documentation=https://github.com/cmoritzkoster/insurance-intel
+
+[Timer]
+# Sonntag 02:00 lokaler Zeit
+OnCalendar=Sun *-*-* 02:00:00
+Persistent=true
+# If the system was off at the scheduled time, fire on next boot.
+# Plus a 5-min randomized delay to avoid traffic spikes if multiple loops ever exist.
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target
