@@ -23,7 +23,8 @@ def render_ntfy_body(*, week_label: str, events: list[dict[str, Any]]) -> tuple[
     p2 = sum(1 for e in events if e.get("signal_priority") == 2)
     p3 = sum(1 for e in events if e.get("signal_priority") == 3)
 
-    title = f"Insurance-Intel {week_label} · {len(events)} Signale ({len(p1)} P1)"
+    # HTTP headers must be ASCII — no en-dash, em-dash, or middle dot.
+    title = f"Insurance-Intel {week_label} - {len(events)} Signale ({len(p1)} P1)"
 
     lines: list[str] = [f"{len(events)} Signale · {len(p1)} P1 / {p2} P2 / {p3} P3", ""]
     for e in p1[:5]:
@@ -54,6 +55,6 @@ def post_digest(*, week_label: str, events: list[dict[str, Any]]) -> bool:
             log.warning("ntfy returned %s: %s", resp.status_code, resp.text[:200])
             return False
         return True
-    except httpx.HTTPError as exc:
+    except Exception as exc:  # noqa: BLE001 — notification must never crash the loop
         log.warning("ntfy POST failed: %s", exc)
         return False
